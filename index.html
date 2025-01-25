@@ -85,6 +85,12 @@
         <div class="heart">❤️</div>
     </div>
 
+    <!-- Audio element, initially hidden -->
+    <audio id="romantic-audio" loop>
+        <source src="mashup_arijit_singh_shortsfeed_youtubeshorts_shorts_arijitsingh_.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
         // Array of online background images
         const backgrounds = [
@@ -111,15 +117,24 @@
         // Variables to keep track of the current index
         let index = 0;
 
+        // Play audio when the button is clicked
+        function playAudio() {
+            const audio = document.getElementById('romantic-audio');
+            audio.play();
+        }
+
+        // Change message and background when the button is clicked
         function changeMessage() {
-            // Get the HTML elements
             const messageElement = document.getElementById('message');
             const body = document.body;
 
             // Update the message and background
-            index = (index + 1) % messages.length; // Cycle through the array
+            index = (index + 1) % messages.length;
             messageElement.textContent = messages[index];
             body.style.backgroundImage = `url('${backgrounds[index]}')`;
+
+            // Play audio if it's not already playing
+            playAudio();
         }
     </script>
 </body>
